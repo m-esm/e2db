@@ -1,0 +1,25 @@
+{
+  "name": "e2db",
+  "version": "1.0.0",
+  "description": "e2e encryption for your database",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-esm/e2db.git"
+  },
+  "keywords": [
+    "encryption",
+    "mongodb",
+    "e2ee",
+    "e2db"
+  ],
+  "author": "Mohsen Esmaeili <m-esm@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m-esm/e2db/issues"
+  },
+  "homepage": "https://github.com/m-esm/e2db#readme"
+}

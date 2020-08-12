@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/m-esm/e2db/issues"
   },
-  "homepage": "https://github.com/m-esm/e2db#readme"
+  "homepage": "https://github.com/m-esm/e2db#readme",
+  "devDependencies": {
+    "@types/mongodb": "^3.5.25",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.0",
+    "yargs": "^15.4.1"
+  }
 }

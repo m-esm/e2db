@@ -8,6 +8,19 @@ describe('Encryption Service', () => {
     encryptionService = new EncryptionService()
   })
 
+  it('Should encrypt with AES', () => {
+    const encrypted = encryptionService.encryptAES('12356', 'test')
+    expect(typeof encrypted).toBe('string')
+  })
+
+  it('Should decrypt with AES', () => {
+    const input = '123456'
+
+    const encrypted = encryptionService.encryptAES(input, 'test')
+    const decrypted = encryptionService.decryptAES(encrypted, 'test')
+    expect(input).toEqual(decrypted)
+  })
+
   it('Should create initialization vector', () => {
     const iv = encryptionService.createIv('test')
 

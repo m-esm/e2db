@@ -21,6 +21,21 @@ describe('Encryption Service', () => {
     expect(input).toEqual(decrypted)
   })
 
+  it('Should encrypt with RSA', async () => {
+    const { publicKey } = await encryptionService.generateRSAKeys()
+    const encrypted = encryptionService.encryptRSA('12356', publicKey)
+    expect(typeof encrypted).toBe('string')
+  })
+
+  it('Should decrypt with RSA', async () => {
+    const input = '123456'
+    const { publicKey, privateKey } = await encryptionService.generateRSAKeys()
+
+    const encrypted = encryptionService.encryptRSA(input, publicKey)
+    const decrypted = encryptionService.decryptRSA(encrypted, privateKey)
+    expect(input).toEqual(decrypted)
+  })
+
   it('Should create initialization vector', () => {
     const iv = encryptionService.createIv('test')
 

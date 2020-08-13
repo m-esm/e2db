@@ -19,7 +19,7 @@ export class EncryptionService {
 
     const cipher = crypto.createCipheriv('aes256', key, this.createIv(secret))
 
-    const encrypted = cipher.update(input, 'binary', 'hex') + cipher.final('hex')
+    const encrypted = cipher.update(input, 'binary', 'base64') + cipher.final('base64')
 
     return encrypted
   }
@@ -28,7 +28,7 @@ export class EncryptionService {
     const key = this.sha256(secret)
     const decipher = crypto.createDecipheriv('aes256', key, this.createIv(secret))
 
-    const decrypted = decipher.update(input, 'hex', 'binary') + decipher.final('binary')
+    const decrypted = decipher.update(input, 'base64', 'binary') + decipher.final('binary')
 
     return decrypted
   }

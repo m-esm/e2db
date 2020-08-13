@@ -3,11 +3,11 @@ export declare class EncryptionService {
     createIv(secret: string): Buffer;
     encryptAES(input: string, secret: string): string;
     decryptAES(input: string, secret: string): string;
-    generateRSAKeys(): Promise<{
+    generateRSAKeys(passphrase?: string): Promise<{
         privateKey: string;
         publicKey: string;
     }>;
-    encryptRSA(): void;
-    decryptRSA(): void;
-    sha256(input: any): Buffer;
+    encryptRSA(input: string, publicKey: string): string;
+    decryptRSA(input: string, privateKey: string, passphrase?: string): string;
+    sha256(input: string): Buffer;
 }

@@ -38,7 +38,33 @@ export class EncryptionService {
     const encrypted = decipher.update(input, "hex", "binary") + decipher.final("binary");
 
     return encrypted;
-    
+
+  }
+
+  async generateRSAKeys(): Promise<{ privateKey: string,
+     publicKey: string }> {
+    return new Promise((resolve, reject) => {
+      crypto.generateKeyPair('rsa', {
+        modulusLength: 4096,
+        publicKeyEncoding: {
+          type: 'spki',
+          format: 'pem'
+        },
+        privateKeyEncoding: {
+          type: 'pkcs8',
+          format: 'pem',
+          // cipher: 'aes-256-cbc',
+          // passphrase: 'top secret'
+        }
+      }, (err, publicKey, privateKey) => {
+
+        if (err) return reject(err);
+
+        resolve({ publicKey, privateKey });
+
+      });
+
+    })
   }
 
   encryptRSA() {

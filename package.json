@@ -4,7 +4,8 @@
   "description": "e2e encryption for your database",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "build" : "tsc --build tsconfig.json",
+    "test": "jest src/"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,10 @@
   },
   "homepage": "https://github.com/m-esm/e2db#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.9",
     "@types/mongodb": "^3.5.25",
+    "jest": "^26.4.0",
+    "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
   },
   "dependencies": {

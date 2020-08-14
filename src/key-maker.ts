@@ -1,9 +1,9 @@
-import { EncryptionService } from './encryption.service'
-import { Key } from '../interfaces/key.interface'
+import { Encryption } from './encryption'
+import { Key } from './key'
 import ObjectID from 'bson-objectid'
 
-export class KeyService {
-    private readonly encryptionService = new EncryptionService();
+export class KeyMaker {
+    private readonly encryption = new Encryption();
 
     /**
      * creates a RSA key pair and encrypts the private part with AES cipher
@@ -11,11 +11,11 @@ export class KeyService {
      * @param rsaPass {string}
      */
     async createKey(aesSecret: string, rsaPass: string = ''): Promise<Key> {
-        const { privateKey, publicKey } = await this.encryptionService.generateRSAKeys(rsaPass)
+        const { privateKey, publicKey } = await this.encryption.generateRSAKeys(rsaPass)
 
         return {
             _id: new ObjectID(),
-            privateKey: this.encryptionService.encryptAES(privateKey, aesSecret),
+            privateKey: this.encryption.encryptAES(privateKey, aesSecret),
             publicKey
         }
     }
@@ -28,11 +28,11 @@ export class KeyService {
      * @returns Key with changed secret {Key}
      */
     async changeKeySecret(key: Key, oldSecret: string, newSecret: string): Promise<Key> {
-        const decryptedPrivateKey = this.encryptionService.decryptAES(key.privateKey, oldSecret)
+        const decryptedPrivateKey = this.encryption.decryptAES(key.privateKey, oldSecret)
 
         return {
             ...key,
-            privateKey: this.encryptionService.encryptAES(decryptedPrivateKey, newSecret)
+            privateKey: this.encryption.encryptAES(decryptedPrivateKey, newSecret)
         }
     }
 }

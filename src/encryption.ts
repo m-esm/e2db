@@ -1,7 +1,7 @@
 
 import * as crypto from 'crypto'
 
-export class EncryptionService {
+export class Encryption {
   /**
    * Creates initialization vector for AES cipher
    * @param secret

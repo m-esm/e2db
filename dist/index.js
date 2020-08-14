@@ -10,6 +10,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./services/encryption.service"), exports);
-__exportStar(require("./services/key.service"), exports);
+__exportStar(require("./encryption"), exports);
+__exportStar(require("./key-maker"), exports);
 //# sourceMappingURL=index.js.map

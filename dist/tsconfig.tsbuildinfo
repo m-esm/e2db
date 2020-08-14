@@ -161,28 +161,38 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
-      "../src/services/encryption.service.ts": {
-        "version": "e01fe33ead10714072c98461c10babcf48435943e0e7c9b17d407461375108d0",
-        "signature": "0702e4c953542ac382ee01c9e21c375e1325c0e81780636c1a778a984a7e89b8",
+      "../src/encryption.ts": {
+        "version": "520254ac1adbc948b3fe74c5904cfe5f68fe06ace72cf87c3e4deaf1c1a97924",
+        "signature": "c051658a13b431463d823571306ef199da6311f52920eb9567191dfca20dfdd0",
         "affectsGlobalScope": false
       },
-      "../src/services/key.service.ts": {
-        "version": "b38433caa4a2044910254659424ae793b19a693ef9ddd9504dc36f82f2633fb4",
-        "signature": "e7360178c627caf4217a1c6a19721268c6794982df01df7449f0d093b54a75a2",
+      "../src/encryption.spec.ts": {
+        "version": "7637edaec27fcda77dc702f63f093f11d361b83719c64761c9f40cb60f414c51",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/bson-objectid/objectid.d.ts": {
+        "version": "2075c35363b7e938be241c1f233e5fa72eaa4e36bfa1ef25a009eeea2a52809a",
+        "signature": "2075c35363b7e938be241c1f233e5fa72eaa4e36bfa1ef25a009eeea2a52809a",
+        "affectsGlobalScope": false
+      },
+      "../src/key.ts": {
+        "version": "cdf34e250d12072fd03b01076a6805c4a310faf3bf01a4e7155c9c35c88be847",
+        "signature": "450d671fdf44130c881b8f749b7aab813a25097e4e14d31458001f9271facb1a",
+        "affectsGlobalScope": false
+      },
+      "../src/key-maker.ts": {
+        "version": "378994fdcb432be4d5c9e023fafdcf4d5095bcda1ffa740e58d94f47b8556977",
+        "signature": "c5fc9ca379597c342cf91c9aa57386026fe1f755335365d97b7b7373aa1cf867",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "8244287bfc9534c4217d310a96494d0a316b449e9a5744e844253d23e23637c3",
-        "signature": "5d9f637d5d5d39751059ea5694e1d8d1a8864173e53974b215bdf6873aa4f7d1",
+        "version": "206b0ff969e440fcf540180c4518a25d2b43d3dfa8892eeacc73db1e409b3e3c",
+        "signature": "3e6eb759f40e70c1055ebdfa97e2ead400ff6e4a8988d233c1a315ed0e94002e",
         "affectsGlobalScope": false
       },
-      "../src/adapters/mongodb.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "../src/services/encryption.service.spec.ts": {
-        "version": "37643e0b3524836affd2ef1cd5e1dcf42b306b2df847ca4fa123c3edcae2ccaf",
+      "../src/key-maker.spec.ts": {
+        "version": "3881f71faa5c25df7a7fa2977d72d63902e306be7dac5da2dd279739c7b1d8b0",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -566,6 +576,11 @@
         "signature": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/minimist/index.d.ts": {
+        "version": "3602dfff3072caea42f23a9b63fb34a7b0c95a62b93ce2add5fe6b159447845e",
+        "signature": "3602dfff3072caea42f23a9b63fb34a7b0c95a62b93ce2add5fe6b159447845e",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/mongodb/index.d.ts": {
         "version": "f85c02e9a1c2d6b22824f79580ecf02677c008e124c4ae4cd3b03886f2d8714c",
         "signature": "f85c02e9a1c2d6b22824f79580ecf02677c008e124c4ae4cd3b03886f2d8714c",
@@ -574,6 +589,11 @@
       "../node_modules/@types/normalize-package-data/index.d.ts": {
         "version": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
         "signature": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/parse-json/index.d.ts": {
+        "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
+        "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/prettier/index.d.ts": {
@@ -853,6 +873,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/minimist/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/mongodb/index.d.ts": [
         "../node_modules/@types/bson/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -1438,6 +1467,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/parse-json/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/prettier/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -1474,6 +1512,16 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/yargs-parser/index.d.ts"
+      ],
+      "../node_modules/bson-objectid/objectid.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/buffer.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/typescript/lib/lib.dom.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -1763,8 +1811,19 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../src/adapters/mongodb.ts": [
+      "../src/encryption.spec.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/encryption.ts"
+      ],
+      "../src/encryption.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/process.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1780,10 +1839,10 @@
         "../node_modules/@types/node/ts3.2/process.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../src/services/encryption.service.ts",
-        "../src/services/key.service.ts"
+        "../src/encryption.ts",
+        "../src/key-maker.ts"
       ],
-      "../src/services/encryption.service.spec.ts": [
+      "../src/key-maker.spec.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/process.d.ts",
@@ -1791,26 +1850,30 @@
         "../node_modules/@types/node/ts3.2/process.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../src/services/encryption.service.ts"
+        "../src/encryption.ts",
+        "../src/key-maker.ts"
       ],
-      "../src/services/encryption.service.ts": [
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/crypto.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/process.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/process.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../src/services/key.service.ts": [
+      "../src/key-maker.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/process.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/process.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/bson-objectid/objectid.d.ts",
+        "../src/encryption.ts",
+        "../src/key.ts"
+      ],
+      "../src/key.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/bson-objectid/objectid.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -2055,6 +2118,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/minimist/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/mongodb/index.d.ts": [
         "../node_modules/@types/bson/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -2640,6 +2712,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/parse-json/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/prettier/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -2676,6 +2757,16 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/yargs-parser/index.d.ts"
+      ],
+      "../node_modules/bson-objectid/objectid.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/buffer.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/typescript/lib/lib.dom.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -2966,8 +3057,14 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../src/index.ts": [
-        "../src/services/encryption.service.ts",
-        "../src/services/key.service.ts"
+        "../src/encryption.ts",
+        "../src/key-maker.ts"
+      ],
+      "../src/key-maker.ts": [
+        "../src/key.ts"
+      ],
+      "../src/key.ts": [
+        "../node_modules/bson-objectid/objectid.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2995,6 +3092,7 @@
       "../node_modules/@types/jest/ts3.2/index.d.ts",
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/json5/index.d.ts",
+      "../node_modules/@types/minimist/index.d.ts",
       "../node_modules/@types/mongodb/index.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
       "../node_modules/@types/node/base.d.ts",
@@ -3049,10 +3147,12 @@
       "../node_modules/@types/node/worker_threads.d.ts",
       "../node_modules/@types/node/zlib.d.ts",
       "../node_modules/@types/normalize-package-data/index.d.ts",
+      "../node_modules/@types/parse-json/index.d.ts",
       "../node_modules/@types/prettier/index.d.ts",
       "../node_modules/@types/stack-utils/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
+      "../node_modules/bson-objectid/objectid.d.ts",
       "../node_modules/typescript/lib/lib.dom.d.ts",
       "../node_modules/typescript/lib/lib.dom.iterable.d.ts",
       "../node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -3085,11 +3185,12 @@
       "../node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "../node_modules/typescript/lib/lib.scripthost.d.ts",
       "../node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
-      "../src/adapters/mongodb.ts",
+      "../src/encryption.spec.ts",
+      "../src/encryption.ts",
       "../src/index.ts",
-      "../src/services/encryption.service.spec.ts",
-      "../src/services/encryption.service.ts",
-      "../src/services/key.service.ts"
+      "../src/key-maker.spec.ts",
+      "../src/key-maker.ts",
+      "../src/key.ts"
     ]
   },
   "version": "3.9.7"

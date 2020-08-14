@@ -30,5 +30,3 @@ To ensure data is end to end encrypted on your backend:
   - To prevent leaking cloud passwords in clear text format in logs or etc, we need to encrypt them by an hourly rotated secret which is only available on-memory with specific expire time.
 
 - Documents AES secret could be encrypted by multiple keys.
-
-

@@ -1,6 +1,10 @@
+> # :fire: :hammer: Under heavy development
+
+
 ## Why?
 
-For the sake of security and privacy for users and their data. services need only have access to part of user's data which they granted access to, remaining data should be only decrypted on user read demand. E2DB is providing a set of tools that will help you with this.
+For the sake of security and privacy for users and their data. services need only have access to part of user's data which they granted access to, remaining data should be only decrypted on user read demand. E2DB is providing a set of tools that 
+will help you with this.
 
 ## What?
 

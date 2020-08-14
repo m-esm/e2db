@@ -5,7 +5,15 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "test": "jest src/"
+    "test": "jest src/",
+    "commit": "git-cz",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix --max-warnings=0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "git-precommit-checks && npm test"
+    }
   },
   "repository": {
     "type": "git",
@@ -24,16 +32,22 @@
   },
   "homepage": "https://github.com/m-esm/e2db#readme",
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@types/jest": "^26.0.9",
     "@types/mongodb": "^3.5.25",
     "@typescript-eslint/eslint-plugin": "^3.9.0",
     "@typescript-eslint/parser": "^3.9.0",
+    "commitizen": "^4.1.2",
     "eslint": "^7.6.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "git-precommit-checks": "^3.0.5",
+    "husky": "^4.2.5",
     "jest": "^26.4.0",
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"

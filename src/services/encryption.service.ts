@@ -2,6 +2,10 @@
 import * as crypto from 'crypto'
 
 export class EncryptionService {
+  /**
+   * Creates initialization vector for AES cipher
+   * @param secret
+   */
   createIv(secret: string) {
     const resizedIV = Buffer.allocUnsafe(16)
 
@@ -14,6 +18,12 @@ export class EncryptionService {
     return resizedIV
   }
 
+  /**
+   * Encrypted input using AES cipher by given secret
+   * Initialization vector will be created using secret
+   * @param input
+   * @param secret
+   */
   encryptAES(input: string, secret: string) {
     const key = this.sha256(secret)
 
@@ -24,6 +34,11 @@ export class EncryptionService {
     return encrypted
   }
 
+  /**
+   * Decrypt base64 encrypted input
+   * @param input
+   * @param secret
+   */
   decryptAES(input: string, secret: string) {
     const key = this.sha256(secret)
     const decipher = crypto.createDecipheriv('aes256', key, this.createIv(secret))
@@ -33,6 +48,11 @@ export class EncryptionService {
     return decrypted
   }
 
+  /**
+   * encrypts input using RSA and given public key
+   * @param input
+   * @param publicKey
+   */
   encryptRSA(input: string, publicKey: string) {
     const buffer = Buffer.from(input, 'utf8')
     const encrypted = crypto.publicEncrypt(publicKey, buffer)
@@ -40,6 +60,11 @@ export class EncryptionService {
     return encrypted.toString('base64')
   }
 
+  /**
+   * decrypts encrypted base64 input using RSA and given public key
+   * @param input base64 input encrypted with RSA
+   * @param publicKey
+   */
   decryptRSA(input: string, privateKey: string, passphrase?: string) {
     const buffer = Buffer.from(input, 'base64')
     const decrypted = crypto.privateDecrypt(
@@ -53,6 +78,10 @@ export class EncryptionService {
     return decrypted.toString('utf8')
   }
 
+  /**
+   * Creates sha256 hash from input string
+   * @param input
+   */
   sha256(input: string): Buffer {
     return crypto
       .createHash('sha256')
@@ -60,6 +89,10 @@ export class EncryptionService {
       .digest()
   }
 
+  /**
+   * Generates RSA key pairs
+   * @param passphrase
+   */
   async generateRSAKeys(passphrase: string = ''): Promise<{
     privateKey: string,
     publicKey: string

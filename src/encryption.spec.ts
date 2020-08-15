@@ -29,10 +29,10 @@ describe('Encryption', () => {
 
   it('Should decrypt with RSA', async () => {
     const input = '123456'
-    const { publicKey, privateKey } = await encryption.generateRSAKeys()
+    const { publicKey, privateKey } = await encryption.generateRSAKeys('rsa-pass')
 
     const encrypted = encryption.encryptRSA(input, publicKey)
-    const decrypted = encryption.decryptRSA(encrypted, privateKey)
+    const decrypted = encryption.decryptRSA(encrypted, privateKey, 'rsa-pass')
     expect(input).toEqual(decrypted)
   })
 

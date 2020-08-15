@@ -15,7 +15,7 @@ describe('Cipher', () => {
     })
 
     it('should encrypt a model', async () => {
-        const keys = await Promise.all(['1', '2'].map(p => keyMaker.createKey(p)))
+        const keys = await Promise.all(['1', '2'].map(p => keyMaker.createKey(p, 'rsa-pass')))
         const model = { message: 'hello world', secretMessage: 'privacy matters' }
 
         const encryptedModel = Cipher.encryptModel(model, keys, { fields: ['secretMessage'] })
@@ -27,12 +27,12 @@ describe('Cipher', () => {
 
     it('should decrypt a model', async () => {
         const cloudPasswords = [uuid.v4(), uuid.v4()]
-        const keys = await Promise.all(cloudPasswords.map(p => keyMaker.createKey(p)))
+        const keys = await Promise.all(cloudPasswords.map(p => keyMaker.createKey(p, 'rsa-pass')))
         const model = { message: 'hello world', secretMessage: 'privacy matters' }
         const encryptedModel = Cipher.encryptModel(model, keys, { fields: ['secretMessage'] })
 
         for (let i = 0; i < 2; i++) {
-            const decryptedModel = Cipher.decryptModel(encryptedModel, keys[0], cloudPasswords[0])
+            const decryptedModel = Cipher.decryptModel(encryptedModel, keys[0], cloudPasswords[0], 'rsa-pass')
 
             expect(decryptedModel.secretMessage).toBe(model.secretMessage)
 

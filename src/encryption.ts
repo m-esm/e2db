@@ -65,7 +65,7 @@ export class Encryption {
    * @param input base64 input encrypted with RSA
    * @param publicKey
    */
-  decryptRSA(input: string, privateKey: string, passphrase?: string) {
+  decryptRSA(input: string, privateKey: string, passphrase: string) {
     const buffer = Buffer.from(input, 'base64')
 
     const decrypted = crypto.privateDecrypt(

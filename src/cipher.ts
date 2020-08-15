@@ -35,7 +35,7 @@ export class Cipher {
         return model
     }
 
-    public static decryptModel<A = any>(model: EncryptedModel, key: Key, cloudPassword: string, rsaPassphrase = ''): A {
+    public static decryptModel<A = any>(model: EncryptedModel, key: Key, cloudPassword: string, rsaPassphrase = 'e2db'): A {
         const privateKey = this.encryption.decryptAES(key.privateKey, cloudPassword)
 
         model._cipherFields?.forEach(field => {

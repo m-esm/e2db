@@ -10,7 +10,7 @@ export class KeyMaker {
      * @param aesSecret {string}
      * @param rsaPass {string}
      */
-    async createKey(aesSecret: string, rsaPass: string = ''): Promise<Key> {
+    async createKey(aesSecret: string, rsaPass: string): Promise<Key> {
         const { privateKey, publicKey } = await this.encryption.generateRSAKeys(rsaPass)
 
         return {

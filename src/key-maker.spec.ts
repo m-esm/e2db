@@ -15,11 +15,11 @@ describe('Key Maker ', () => {
         const aesSecret = '123456'
         const toEncrypt = 'test'
 
-        const { privateKey, publicKey } = await keyMaker.createKey(aesSecret)
+        const { privateKey, publicKey } = await keyMaker.createKey(aesSecret, 'rsa-pass')
 
         const encrypted = encryption.encryptRSA(toEncrypt, publicKey)
 
-        const decrypted = encryption.decryptRSA(encrypted, encryption.decryptAES(privateKey, aesSecret))
+        const decrypted = encryption.decryptRSA(encrypted, encryption.decryptAES(privateKey, aesSecret), 'rsa-pass')
 
         expect(decrypted).toBe(toEncrypt)
     })
@@ -28,7 +28,7 @@ describe('Key Maker ', () => {
         const aesSecret = '111'
         const aesSecretUpdate = '222'
 
-        const key = await keyMaker.createKey(aesSecret)
+        const key = await keyMaker.createKey(aesSecret, 'rsa-pass')
 
         const keyWithPasswordChanged = await keyMaker.changeKeySecret(key, aesSecret, aesSecretUpdate)
 

@@ -1,9 +1,8 @@
 > # :fire: :hammer: Under heavy development
 
-
 ## Why?
 
-For the sake of security and privacy for users and their data. services need only have access to part of user's data which they granted access to, remaining data should be only decrypted on user read demand. E2DB is providing a set of tools that 
+For the sake of security and privacy for users and their data. services need only have access to part of user's data which they granted access to, remaining data should be only decrypted on user read demand. E2DB is providing a set of tools that
 will help you with this.
 
 ## What?
@@ -34,3 +33,8 @@ To ensure data is end to end encrypted on your backend:
   - To prevent leaking cloud passwords in clear text format in logs or etc, we need to encrypt them by an hourly rotated secret which is only available on-memory with specific expire time.
 
 - Documents AES secret could be encrypted by multiple keys.
+
+### Resources
+
+- https://nodejs.org/en/knowledge/cryptography/how-to-use-crypto-module/
+- https://gist.github.com/joepie91/7105003c3b26e65efcea63f3db82dfba

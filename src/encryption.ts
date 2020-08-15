@@ -67,10 +67,12 @@ export class Encryption {
    */
   decryptRSA(input: string, privateKey: string, passphrase?: string) {
     const buffer = Buffer.from(input, 'base64')
+
     const decrypted = crypto.privateDecrypt(
       {
         key: privateKey,
-        passphrase
+        passphrase,
+        padding: 0
       },
       buffer
     )

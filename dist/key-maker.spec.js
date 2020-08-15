@@ -12,15 +12,15 @@ describe('Key Maker ', () => {
     it('should create a key', async () => {
         const aesSecret = '123456';
         const toEncrypt = 'test';
-        const { privateKey, publicKey } = await keyMaker.createKey(aesSecret);
+        const { privateKey, publicKey } = await keyMaker.createKey(aesSecret, 'rsa-pass');
         const encrypted = encryption.encryptRSA(toEncrypt, publicKey);
-        const decrypted = encryption.decryptRSA(encrypted, encryption.decryptAES(privateKey, aesSecret));
+        const decrypted = encryption.decryptRSA(encrypted, encryption.decryptAES(privateKey, aesSecret), 'rsa-pass');
         expect(decrypted).toBe(toEncrypt);
     });
     it('should change a key secret', async () => {
         const aesSecret = '111';
         const aesSecretUpdate = '222';
-        const key = await keyMaker.createKey(aesSecret);
+        const key = await keyMaker.createKey(aesSecret, 'rsa-pass');
         const keyWithPasswordChanged = await keyMaker.changeKeySecret(key, aesSecret, aesSecretUpdate);
         expect(key.publicKey).toBe(keyWithPasswordChanged.publicKey);
         expect(key._id).toBe(keyWithPasswordChanged._id);

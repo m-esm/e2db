@@ -12,7 +12,7 @@ describe('Cipher', () => {
         encryption = new encryption_1.Encryption();
     });
     it('should encrypt a model', async () => {
-        const keys = await Promise.all(['1', '2'].map(p => keyMaker.createKey(p)));
+        const keys = await Promise.all(['1', '2'].map(p => keyMaker.createKey(p, 'rsa-pass')));
         const model = { message: 'hello world', secretMessage: 'privacy matters' };
         const encryptedModel = cipher_1.Cipher.encryptModel(model, keys, { fields: ['secretMessage'] });
         expect(encryptedModel._cipherFields[0]).toBe('secretMessage');
@@ -20,11 +20,11 @@ describe('Cipher', () => {
     });
     it('should decrypt a model', async () => {
         const cloudPasswords = [uuid.v4(), uuid.v4()];
-        const keys = await Promise.all(cloudPasswords.map(p => keyMaker.createKey(p)));
+        const keys = await Promise.all(cloudPasswords.map(p => keyMaker.createKey(p, 'rsa-pass')));
         const model = { message: 'hello world', secretMessage: 'privacy matters' };
         const encryptedModel = cipher_1.Cipher.encryptModel(model, keys, { fields: ['secretMessage'] });
         for (let i = 0; i < 2; i++) {
-            const decryptedModel = cipher_1.Cipher.decryptModel(encryptedModel, keys[0], cloudPasswords[0]);
+            const decryptedModel = cipher_1.Cipher.decryptModel(encryptedModel, keys[0], cloudPasswords[0], 'rsa-pass');
             expect(decryptedModel.secretMessage).toBe(model.secretMessage);
             expect(decryptedModel._cipherKeys).toBeUndefined();
             expect(decryptedModel._cipherKeys).toBeUndefined();

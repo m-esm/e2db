@@ -7,7 +7,7 @@ class KeyMaker {
     constructor() {
         this.encryption = new encryption_1.Encryption();
     }
-    async createKey(aesSecret, rsaPass = '') {
+    async createKey(aesSecret, rsaPass) {
         const { privateKey, publicKey } = await this.encryption.generateRSAKeys(rsaPass);
         return {
             _id: new bson_objectid_1.default(),

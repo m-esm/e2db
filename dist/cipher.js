@@ -19,7 +19,7 @@ class Cipher {
         model._cipherFields = fields;
         return model;
     }
-    static decryptModel(model, key, cloudPassword, rsaPassphrase = '') {
+    static decryptModel(model, key, cloudPassword, rsaPassphrase = 'e2db') {
         var _a;
         const privateKey = this.encryption.decryptAES(key.privateKey, cloudPassword);
         (_a = model._cipherFields) === null || _a === void 0 ? void 0 : _a.forEach(field => {

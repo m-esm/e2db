@@ -24,6 +24,16 @@ class Encryption {
         const decrypted = decipher.update(input, 'base64', 'binary') + decipher.final('binary');
         return decrypted;
     }
+    createEncryptStreamAES(secret) {
+        const key = this.sha256(secret);
+        const cipher = crypto.createCipheriv('aes256', key, this.createIv(secret));
+        return cipher;
+    }
+    createDecryptStreamAES(secret) {
+        const key = this.sha256(secret);
+        const decipher = crypto.createDecipheriv('aes256', key, this.createIv(secret));
+        return decipher;
+    }
     encryptRSA(input, publicKey) {
         const buffer = Buffer.from(input, 'utf8');
         const encrypted = crypto.publicEncrypt(publicKey, buffer);

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { Encryption } from './encryption'
-
+import * as fs from 'fs'
 describe('Encryption', () => {
   let encryption: Encryption
 
@@ -13,6 +13,26 @@ describe('Encryption', () => {
     expect(typeof encrypted).toBe('string')
   })
 
+  it('Should encrypt and decrypt with AES stream', async () => {
+    const encryptPassTrough = encryption.createEncryptStreamAES('12356')
+    const decryptPassTrough = encryption.createDecryptStreamAES('12356')
+
+    const fileData = fs.readFileSync(__filename).toString()
+
+    const pipedData = await new Promise((resolve, reject) => {
+      let temp = ''
+      fs.createReadStream(__filename).pipe(encryptPassTrough).pipe(decryptPassTrough).on('data', (chunk) => {
+        temp += chunk
+      }).on('end', () => {
+        resolve(temp)
+      }).on('error', (e) => {
+        reject(e)
+      })
+    })
+
+    expect(pipedData).toBe(fileData)
+  })
+
   it('Should decrypt with AES', () => {
     const input = '123456'
 
@@ -22,7 +42,7 @@ describe('Encryption', () => {
   })
 
   it('Should encrypt with RSA', async () => {
-    const { publicKey } = await encryption.generateRSAKeys()
+    const { publicKey } = await encryption.generateRSAKeys('rsa-pass')
     const encrypted = encryption.encryptRSA('12356', publicKey)
     expect(typeof encrypted).toBe('string')
   })

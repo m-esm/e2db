@@ -35,6 +35,13 @@ export class Cipher {
         return model
     }
 
+    /**
+     * Decrypts encrypted fields of model and returns the model
+     * @param model
+     * @param key {Key}
+     * @param cloudPassword
+     * @param rsaPassphrase
+     */
     public static decryptModel<A = any>(model: EncryptedModel, key: Key, cloudPassword: string, rsaPassphrase = 'e2db'): A {
         const privateKey = this.encryption.decryptAES(key.privateKey, cloudPassword)
 

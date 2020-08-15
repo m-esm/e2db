@@ -1,5 +1,7 @@
 
 import * as crypto from 'crypto'
+import { PassThrough } from 'stream'
+import { Cipher } from './cipher'
 
 export class Encryption {
   /**
@@ -24,7 +26,7 @@ export class Encryption {
    * @param input
    * @param secret
    */
-  encryptAES(input: string, secret: string) {
+  encryptAES(input: string, secret: string): string {
     const key = this.sha256(secret)
 
     const cipher = crypto.createCipheriv('aes256', key, this.createIv(secret))
@@ -39,13 +41,38 @@ export class Encryption {
    * @param input
    * @param secret
    */
-  decryptAES(input: string, secret: string) {
+  decryptAES(input: string, secret: string): string {
     const key = this.sha256(secret)
     const decipher = crypto.createDecipheriv('aes256', key, this.createIv(secret))
 
     const decrypted = decipher.update(input, 'base64', 'binary') + decipher.final('binary')
 
     return decrypted
+  }
+
+  /**
+   * create AES encryption stream PassThrough
+   * @param input
+   * @param secret
+   */
+  createEncryptStreamAES(secret: string): PassThrough {
+    const key = this.sha256(secret)
+
+    const cipher = crypto.createCipheriv('aes256', key, this.createIv(secret))
+
+    return cipher
+  }
+
+  /**
+   * create AES decryption stream PassThrough
+   * @param input
+   * @param secret
+   */
+  createDecryptStreamAES(secret: string): PassThrough {
+    const key = this.sha256(secret)
+    const decipher = crypto.createDecipheriv('aes256', key, this.createIv(secret))
+
+    return decipher
   }
 
   /**

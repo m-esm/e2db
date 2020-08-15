@@ -161,14 +161,14 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
-      "../src/encryption.ts": {
-        "version": "520254ac1adbc948b3fe74c5904cfe5f68fe06ace72cf87c3e4deaf1c1a97924",
-        "signature": "c051658a13b431463d823571306ef199da6311f52920eb9567191dfca20dfdd0",
+      "../node_modules/@types/uuid/index.d.ts": {
+        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
+        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       },
-      "../src/encryption.spec.ts": {
-        "version": "7637edaec27fcda77dc702f63f093f11d361b83719c64761c9f40cb60f414c51",
-        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "../src/encryption.ts": {
+        "version": "f4f62d0449e86a52f49990ddae55e44bd65c3239f03fa3bacb54313d53496175",
+        "signature": "c051658a13b431463d823571306ef199da6311f52920eb9567191dfca20dfdd0",
         "affectsGlobalScope": false
       },
       "../node_modules/bson-objectid/objectid.d.ts": {
@@ -184,6 +184,26 @@
       "../src/key-maker.ts": {
         "version": "378994fdcb432be4d5c9e023fafdcf4d5095bcda1ffa740e58d94f47b8556977",
         "signature": "c5fc9ca379597c342cf91c9aa57386026fe1f755335365d97b7b7373aa1cf867",
+        "affectsGlobalScope": false
+      },
+      "../src/interfaces/encrypted-model.interface.ts": {
+        "version": "80e73ca1e6e5b735a02e7099cd8663ac2de9fc2236a99f2a835f3911e2d8d285",
+        "signature": "0db68186aecb41646a270ab8ecc30549d6297b6ee03eb0f1352ca78c1594d25e",
+        "affectsGlobalScope": false
+      },
+      "../src/cipher.ts": {
+        "version": "f030e1e8fb2f20b9caee356d88e67173e25860918a7e9c6d5842eb3d6bde1e05",
+        "signature": "baa9e756a9706cae92d9feb7740d0d99285d26187020b33530535ee8ff39a114",
+        "affectsGlobalScope": false
+      },
+      "../src/cipher.spec.ts": {
+        "version": "8c7df253166e78dfd1341220dcd6645b70e686e9212013eed770743a1e4f5562",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "../src/encryption.spec.ts": {
+        "version": "7637edaec27fcda77dc702f63f093f11d361b83719c64761c9f40cb60f414c51",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
@@ -1494,6 +1514,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/uuid/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/yargs-parser/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -1811,6 +1840,33 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../src/cipher.spec.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/uuid/index.d.ts",
+        "../src/cipher.ts",
+        "../src/encryption.ts",
+        "../src/key-maker.ts"
+      ],
+      "../src/cipher.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/uuid/index.d.ts",
+        "../src/encryption.ts",
+        "../src/interfaces/encrypted-model.interface.ts",
+        "../src/key-maker.ts",
+        "../src/key.ts"
+      ],
       "../src/encryption.spec.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -1841,6 +1897,15 @@
         "../node_modules/@types/node/util.d.ts",
         "../src/encryption.ts",
         "../src/key-maker.ts"
+      ],
+      "../src/interfaces/encrypted-model.interface.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../src/key-maker.spec.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -2739,6 +2804,15 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/uuid/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/yargs-parser/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -3056,6 +3130,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../src/cipher.ts": [
+        "../src/encryption.ts",
+        "../src/interfaces/encrypted-model.interface.ts",
+        "../src/key-maker.ts",
+        "../src/key.ts"
+      ],
       "../src/index.ts": [
         "../src/encryption.ts",
         "../src/key-maker.ts"
@@ -3150,6 +3230,7 @@
       "../node_modules/@types/parse-json/index.d.ts",
       "../node_modules/@types/prettier/index.d.ts",
       "../node_modules/@types/stack-utils/index.d.ts",
+      "../node_modules/@types/uuid/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
       "../node_modules/bson-objectid/objectid.d.ts",
@@ -3185,9 +3266,12 @@
       "../node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "../node_modules/typescript/lib/lib.scripthost.d.ts",
       "../node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      "../src/cipher.spec.ts",
+      "../src/cipher.ts",
       "../src/encryption.spec.ts",
       "../src/encryption.ts",
       "../src/index.ts",
+      "../src/interfaces/encrypted-model.interface.ts",
       "../src/key-maker.spec.ts",
       "../src/key-maker.ts",
       "../src/key.ts"

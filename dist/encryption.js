@@ -33,7 +33,8 @@ class Encryption {
         const buffer = Buffer.from(input, 'base64');
         const decrypted = crypto.privateDecrypt({
             key: privateKey,
-            passphrase
+            passphrase,
+            padding: 0
         }, buffer);
         return decrypted.toString('utf8');
     }

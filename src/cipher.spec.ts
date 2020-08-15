@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
-import { KeyMaker } from './key-maker'
-import { Encryption } from './encryption'
-import { Cipher } from './cipher'
 import * as uuid from 'uuid'
+
+import { Cipher } from './cipher'
+import { Encryption } from './encryption'
+import { KeyMaker } from './key-maker'
 
 describe('Cipher', () => {
     let keyMaker: KeyMaker
@@ -28,13 +29,15 @@ describe('Cipher', () => {
         const cloudPasswords = [uuid.v4(), uuid.v4()]
         const keys = await Promise.all(cloudPasswords.map(p => keyMaker.createKey(p)))
         const model = { message: 'hello world', secretMessage: 'privacy matters' }
-
         const encryptedModel = Cipher.encryptModel(model, keys, { fields: ['secretMessage'] })
-        const decryptedModel = Cipher.decryptModel(encryptedModel, keys[0], cloudPasswords[0])
 
-        expect(decryptedModel.secretMessage).toBe(model.secretMessage)
+        for (let i = 0; i < 2; i++) {
+            const decryptedModel = Cipher.decryptModel(encryptedModel, keys[0], cloudPasswords[0])
 
-        expect(decryptedModel._cipherKeys).toBeUndefined()
-        expect(decryptedModel._cipherKeys).toBeUndefined()
+            expect(decryptedModel.secretMessage).toBe(model.secretMessage)
+
+            expect(decryptedModel._cipherKeys).toBeUndefined()
+            expect(decryptedModel._cipherKeys).toBeUndefined()
+        }
     })
 })

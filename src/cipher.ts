@@ -16,9 +16,9 @@ export class Cipher {
      * @param keys
      * @param opts
      */
-    public static encryptModel(model: any, keys: Key[], opts: { fields?: string[] }) {
-        const fields = opts.fields || Object.keys(model)
-
+    public static encryptModel(model: any, keys: Key[], opts: { fields?: string[], exclude?: string[] }) {
+        const excludeFields = opts.exclude || ['_id']
+        const fields = opts.fields || Object.keys(model).filter(p => excludeFields.indexOf(p) === -1)
         const aesSecret = uuid.v4()
 
         fields.forEach(f => {
@@ -38,7 +38,7 @@ export class Cipher {
     public static decryptModel<A = any>(model: EncryptedModel, key: Key, cloudPassword: string, rsaPassphrase = ''): A {
         const privateKey = this.encryption.decryptAES(key.privateKey, cloudPassword)
 
-        model._cipherFields.forEach(field => {
+        model._cipherFields?.forEach(field => {
             const aesSecret = this.encryption.decryptRSA(model._cipherKeys[key._id.toHexString()], privateKey, rsaPassphrase)
             model[field] = JSON.parse(this.encryption.decryptAES(model[field], aesSecret))
         })

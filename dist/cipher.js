@@ -6,8 +6,8 @@ const encryption_1 = require("./encryption");
 const key_maker_1 = require("./key-maker");
 class Cipher {
     static encryptModel(model, keys, opts) {
-        const excludeFields = opts.exclude || ['_id'];
-        const fields = opts.fields || Object.keys(model).filter(p => excludeFields.indexOf(p) === -1);
+        const excludeFields = (opts === null || opts === void 0 ? void 0 : opts.exclude) || ['_id'];
+        const fields = (opts === null || opts === void 0 ? void 0 : opts.fields) || Object.keys(model).filter(p => excludeFields.indexOf(p) === -1);
         const aesSecret = uuid.v4();
         fields.forEach(f => {
             model[f] = this.encryption.encryptAES(JSON.stringify(model[f]), aesSecret);

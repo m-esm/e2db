@@ -17,8 +17,8 @@ export class Cipher {
      * @param opts
      */
     public static encryptModel(model: any, keys: Key[], opts: { fields?: string[], exclude?: string[] }) {
-        const excludeFields = opts.exclude || ['_id']
-        const fields = opts.fields || Object.keys(model).filter(p => excludeFields.indexOf(p) === -1)
+        const excludeFields = opts?.exclude || ['_id']
+        const fields = opts?.fields || Object.keys(model).filter(p => excludeFields.indexOf(p) === -1)
         const aesSecret = uuid.v4()
 
         fields.forEach(f => {

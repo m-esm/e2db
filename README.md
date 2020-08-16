@@ -1,4 +1,77 @@
-> # :fire: :hammer: Under heavy development
+> ### :fire: :hammer: Under heavy development
+
+# E2DB - e2e encryption for your database and files
+
+[![NPM](https://img.shields.io/npm/v/e2db.svg)](https://www.npmjs.com/package/e2db)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/m-esm/e2db/graphs/commit-activity)
+[![GitHub stars](https://img.shields.io/github/stars/m-esm/e2db.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/m-esm/e2db/stargazers/)
+
+## Install
+
+```sh
+npm install e2db
+```
+
+## Run tests
+
+```sh
+npm run test
+```
+
+## 🚀 Usage
+
+```js
+const Cipher = require("e2db").Cipher;
+
+async function doExample() {
+  const userCloudPassword = "user cloud password";
+  const globalRsaPass = "global rsa passphrase";
+  // key.privateKey is encrypted with AES secret ( user cloud password )
+  // key.privateKey is also protected by rsa pass phrase ( global rsa pass for your app )
+  // key._id is auto generated bson object id
+  const key = await Cipher.keyMaker.createKey(userCloudPassword, globalRsaPass);
+
+  const model = {
+    message: "hello world",
+    secretMessage: "privacy matters",
+  };
+
+  // models could be encrypted by multiple keys
+  const encryptedModel = Cipher.encryptModel(model, [key], {
+    fields: ["secretMessage"],
+  });
+
+  console.log(JSON.stringify(encryptedModel, null, 2));
+
+  // note that 5f38843239e984113d8eb8fa is our key._id
+  // outputs:
+  //   {
+  //     "message": "hello world",
+  //     "secretMessage": "P9acGm+rBD4TaUpNRZVx2/5UW8BY0d0frHHiF2l6flU=",
+  //     "_cipherKeys": {
+  //       "5f38843239e984113d8eb8fa": "RANDOM_AES_SECRET_ENCRYPTED_BY_RSA_KEY"
+  //     },
+  //     "_cipherFields": [
+  //       "secretMessage"
+  //     ]
+  //   }
+
+  const decryptedModel = Cipher.decryptModel(
+    encryptedModel,
+    key,
+    userCloudPassword,
+    globalRsaPass
+  );
+
+  console.log(JSON.stringify(decryptedModel, null, 2));
+
+  // outputs:
+  // {
+  //   "message": "hello world",
+  //   "secretMessage": "privacy matters"
+  // }
+}
+```
 
 ## Why?
 
@@ -34,7 +107,27 @@ To ensure data is end to end encrypted on your backend:
 
 - Documents AES secret could be encrypted by multiple keys.
 
-### Resources
+## Resources
 
 - https://nodejs.org/en/knowledge/cryptography/how-to-use-crypto-module/
 - https://gist.github.com/joepie91/7105003c3b26e65efcea63f3db82dfba
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/m-esm/e2db/issues). You can also take a look at the [contributing guide](https://github.com/m-esm/e2db/blob/master/CONTRIBUTING.md).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2020 [Mohsen Esmaeili <m-esm@hotmail.com>](https://github.com/m-esm).<br />
+This project is [MIT](https://github.com/m-esm/e2db/blob/master/LICENSE) licensed.
+
+### Author
+
+👤 **Mohsen Esmaeili <m-esm@hotmail.com>**
+
+- Twitter: [@mohsen_esm](https://twitter.com/mohsen_esm)
+- LinkedIn: [@m-esm](https://linkedin.com/in/m-esm)

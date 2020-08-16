@@ -207,8 +207,8 @@
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "b328e03166ca42a42882923ae18214a47a327f1fabc611c37523879c50100f3e",
-        "signature": "d1fa37f972daf6a378e3dd440e0d50e6154796dc1b9c8752ae193179b45d3c11",
+        "version": "fcb13e34813313a30db2d8fed84aed4a3bd73056c38de358484a207269828a5d",
+        "signature": "c1d31a2dc801e2314bd51fe27b0e302e958979ffdaf39fcc48d10023871e91d5",
         "affectsGlobalScope": false
       },
       "../src/key-maker.spec.ts": {
@@ -1897,7 +1897,9 @@
         "../node_modules/@types/node/ts3.2/process.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../src/cipher.ts"
+        "../src/cipher.ts",
+        "../src/encryption.ts",
+        "../src/key-maker.ts"
       ],
       "../src/interfaces/encrypted-model.interface.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -3141,7 +3143,9 @@
         "../node_modules/@types/node/stream.d.ts"
       ],
       "../src/index.ts": [
-        "../src/cipher.ts"
+        "../src/cipher.ts",
+        "../src/encryption.ts",
+        "../src/key-maker.ts"
       ],
       "../src/key-maker.ts": [
         "../src/key.ts"

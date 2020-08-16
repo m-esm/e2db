@@ -11,4 +11,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./cipher"), exports);
+__exportStar(require("./key-maker"), exports);
+__exportStar(require("./encryption"), exports);
 //# sourceMappingURL=index.js.map

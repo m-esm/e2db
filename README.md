@@ -18,6 +18,10 @@ npm install e2db
 npm run test
 ```
 
+## Demo
+
+https://runkit.io/m-esm/e2db/branches/master
+
 ## 🚀 Usage
 
 ```js

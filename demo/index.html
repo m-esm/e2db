@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2DB demo</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Ubuntu Mono', monospace;
+        }
+
+        .container {
+            max-width: 1024px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app" class="container">
+
+        <h3>
+            E2DB - e2e encryption for your database and files
+        </h3>
+
+        <p>
+            Following steps shows how to encrypt user documents which is only accessible by user cloud password
+        </p>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>
+                    1. User sign-up
+                </h4>
+
+            </div>
+            <div class="col-md-6">
+                <pre>// imaginary users for sign-up
+{{ user }}</pre>
+                <button class="primary small" v-on:click="registerUser">Register</button>
+            </div>
+            <div class="col-md-6">
+                <pre class="secondary">// registered user will show up here
+{{ registeredUser }} </pre>
+                <div v-if="registering" class="spinner"></div>
+
+            </div>
+        </div>
+
+        <hr style="margin:45px 0">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>
+                    2. Adding document by the user
+                </h4>
+
+            </div>
+            <div class="col-md-6">
+                <pre>
+{{ exampleDocument }}</pre>
+                <button class="primary small" v-on:click="addDocument"
+                    :disabled="!registeredUser">{{ !registeredUser? 'Register user to' :'' }} Submit document</button>
+            </div>
+            <div class="col-md-6">
+                <pre class="secondary">// inserted document will show up here 
+{{insertedDocument}}
+                </pre>
+                <div v-if="adding" class="spinner"></div>
+
+            </div>
+        </div>
+
+        <hr style="margin:45px 0">
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>
+                    3. Getting decrypted document using cloud password
+                </h4>
+
+            </div>
+            <div class="col-md-6">
+                <pre>
+{{ {cloudPass: user.cloudPass, documentId: insertedDocument?._id } }}</pre>
+                <button class="primary small" v-on:click="getDocument" :disabled="!insertedDocument">Get
+                    document</button>
+            </div>
+            <div class="col-md-6">
+                <pre class="secondary">// decrypted document will show up here 
+{{ decryptedDocument }}
+                </pre>
+
+                <div v-if="getting" class="spinner"></div>
+
+            </div>
+        </div>
+
+        <hr style="margin:45px 0">
+
+        <h3>Server.js</h3>
+        <pre>{{source}}</pre>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://rawgit.com/Marak/faker.js/master/examples/browser/js/faker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            mounted :async function(){
+                this.source = (await axios.get('source')).data;
+            },
+            methods: {
+                registerUser: async function () {
+
+                    this.registering = true;
+                    const { data: registeredUser } = await axios.post('register', this.user)
+                    this.registeredUser = registeredUser;
+                    this.registering = false;
+
+                },
+                addDocument: async function () {
+
+                    this.adding = true;
+
+                    const { data: insertedDocument } = await axios.post('documents', this.exampleDocument, {
+                        headers: {
+                            Authorization: this.registeredUser.token
+                        }
+                    })
+                    this.insertedDocument = insertedDocument;
+                    this.adding = false;
+
+                },
+
+                getDocument: async function () {
+
+                    this.getting = true;
+
+                    const { data: decryptedDocument } = await axios.get('documents/' + this.insertedDocument._id, {
+                        headers: {
+                            Authorization: this.registeredUser.token,
+                            'x-cloud-pass': this.user.cloudPass
+                        }
+                    })
+                    this.decryptedDocument = decryptedDocument;
+                    this.getting = false;
+
+                },
+            },
+            data: {
+                source: '',
+                registeredUser: null,
+                decryptedDocument: null,
+                insertedDocument: null,
+                user: {
+                    name: faker.name.findName(),
+                    cloudPass: faker.internet.password()
+                },
+                exampleDocument: {
+                    secretMessage: 'privacy matters',
+                    anotherField: 'some sensitive info'
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

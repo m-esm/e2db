@@ -1,6 +1,6 @@
 {
   "name": "e2db",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "e2e encryption for your database",
   "main": "dist/index.js",
   "scripts": {

@@ -103,9 +103,20 @@ To ensure data is end to end encrypted on your backend:
 
 - Cloud passwords should always be received from the client-side and not persisted on the server-side.
 
-  - To prevent leaking cloud passwords in clear text format in logs or etc, we need to encrypt them by an hourly rotated secret which is only available on-memory with specific expire time.
+  - To prevent leaking cloud passwords in clear text format in logs or etc, we need to encrypt them by an hourly rotated secret ( cloud password salt ) which is only available on-memory with specific expire time.
 
 - Documents AES secret could be encrypted by multiple keys.
+
+## Road map
+
+- [x] Create RSA key pairs encrypted by AES secret
+- [x] Changes AES secret of a RSA key
+- [x] PassTrough stream with AES cipher
+- [x] Cipher usage example
+- [ ] Create cloud password salt
+- [ ] Mongoose example
+- [ ] NestJs example
+- [ ] ExpressJs example
 
 ## Resources
 

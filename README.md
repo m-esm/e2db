@@ -1,5 +1,3 @@
-> ### :fire: :hammer: Under heavy development
-
 # E2DB - e2e encryption for your database and files
 
 [![NPM](https://img.shields.io/npm/v/e2db.svg)](https://www.npmjs.com/package/e2db)

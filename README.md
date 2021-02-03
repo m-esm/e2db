@@ -2,7 +2,7 @@
 
 [![NPM](https://img.shields.io/npm/v/e2db.svg)](https://www.npmjs.com/package/e2db)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/m-esm/e2db/graphs/commit-activity)
-[![GitHub stars](https://img.shields.io/github/stars/m-esm/e2db.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/m-esm/e2db/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/m-esm/e2db.svg?style=social&label=Star)](https://GitHub.com/m-esm/e2db/stargazers/)
 
 ## Install
 
